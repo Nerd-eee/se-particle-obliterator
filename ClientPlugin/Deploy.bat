@@ -25,7 +25,7 @@ if not exist "%SRCFILE%" (
 REM Route by target framework:
 REM   net4x  (.NET Framework) -> Pulsar\Legacy\Local
 REM   others (.NET 5+)        -> Pulsar\Interim\Local (only if Pulsar\Interim exists)
-set "PULSAR=%AppData%\Pulsar"
+set "PULSAR=%AppData%\SpaceEngineers\Pulsar\Pulsar-v2.0.0"
 set "EDITION=Interim"
 echo(%TFM% | findstr /b /i "net4" >nul && set "EDITION=Legacy"
 if "%TFM%"=="" set "EDITION=Legacy"

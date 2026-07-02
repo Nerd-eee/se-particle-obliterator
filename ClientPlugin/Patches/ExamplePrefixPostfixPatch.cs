@@ -1,41 +1,25 @@
 using System.Diagnostics.CodeAnalysis;
 using HarmonyLib;
 using Sandbox.Game.Multiplayer;
+using VRage.Game;
+using VRageMath;
 
 namespace ClientPlugin.Patches;
 
 // ReSharper disable once UnusedType.Global
-[HarmonyPatch(typeof(MyPlayerCollection))]
+[HarmonyPatch(typeof(MyParticlesManager), "CreateParticleEffect")]
 [SuppressMessage("ReSharper", "UnusedType.Global")]
 [SuppressMessage("ReSharper", "UnusedMember.Global")]
-public static class MyPlayerCollectionPatch
+public static class MyParticlesManagerPatch
 {
     private static Config Config => Config.Current;
 
-    [HarmonyPrefix]
-    [HarmonyPatch(nameof(MyPlayerCollection.SendDirtyBlockLimits))]
-    public static bool SendDirtyBlockLimitsPrefix()
+    public static bool Prefix(ref MyParticleEffect __result, string name, ref MatrixD effectMatrix, ref Vector3D worldPosition, uint parentID, bool userDraw = false, int keepXFramesAhead = 0)
     {
-        // Use the config to enable patches corresponding to your plugin's features
-        if (!Config.Toggle)
+        if (!Config.Enable)
             return true;
-        
-        // Your logic to run before or instead the original method implementation.
-        // You cannot and should not attempt to call the original method here.
-            
-        // Return false to replace the original method, make sure any return value and out arguments are handled.
-        // Return true to call the original method.
-        return true;
-    }
-    
-    [HarmonyPostfix]
-    [HarmonyPatch(nameof(MyPlayerCollection.SendDirtyBlockLimits))]
-    public static void SendDirtyBlockLimitsPostfix()
-    {
-        // Use the config to enable patches corresponding to your plugin's features
-        if (!Config.Toggle)
-            return;
-        
-        // Your logic to run after the original method implementation.
+
+        __result = null;
+        return false;
     }
 }

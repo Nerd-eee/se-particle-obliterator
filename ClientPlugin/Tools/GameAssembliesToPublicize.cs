@@ -4,5 +4,5 @@
 
 [assembly: IgnoresAccessChecksTo("Sandbox.Game")]
 [assembly: IgnoresAccessChecksTo("SpaceEngineers.Game")]
-
+[assembly: IgnoresAccessChecksTo("VRage.Game")]
 */
