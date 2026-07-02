@@ -56,7 +56,7 @@
     -->
 
     <!-- The current plugin version's commit hash -->
-    <Commit>TODO Git commit hash</Commit>
+    <Commit>a1c11add6443b0c16a3e5476819dd46587d6ec0a</Commit>
 
     <!-- Optional list of alternate versions of the plugin, use it for test or custom builds
     <AlternateVersions>
