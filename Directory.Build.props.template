@@ -1,0 +1,11 @@
+<Project>
+  <!-- Plugin version (committed, shared by all contributors) -->
+  <Import Project="Version.Build.props" />  
+
+  <PropertyGroup>
+    <!-- Folder containing SpaceEngineers.exe.
+         Fill the path between the tags to override; leave empty to use the
+         platform-specific auto-detection in ClientPlugin.csproj. -->
+    <Bin64></Bin64>
+  </PropertyGroup>
+</Project>
